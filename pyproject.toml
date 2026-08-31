@@ -1,0 +1,43 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "deep-think-tool"
+version = "0.2.0"
+description = "Ghi nhận toàn văn luồng lập luận, phân tích đa bước và dữ liệu kiểm chứng, không cắt ngắn nội dung."
+readme = "README.md"
+requires-python = ">=3.10"
+authors = [{ name = "Trantrongtan2000" }]
+keywords = ["logging", "reasoning", "audit", "deep-think"]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Operating System :: OS Independent",
+    "Environment :: Console",
+    "Topic :: System :: Logging",
+]
+dependencies = []
+
+[project.optional-dependencies]
+dev = ["pytest>=8.0"]
+
+[project.scripts]
+deep-think = "deep_think.cli:main"
+
+[project.urls]
+Homepage = "https://github.com/Trantrongtan2000/deep_think_tool"
+
+[tool.setuptools.packages.find]
+include = ["deep_think*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]
+addopts = "-q"
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
